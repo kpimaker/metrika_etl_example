@@ -1,11 +1,13 @@
 # coding: utf-8
 
-from metrika_lib import attendance, traffic_sources, content
+from metrika_lib import traffic_sources
+from config import METRIKA_FILE, LOAD_DATE
 
 
 def main():
-    print(attendance(44147844, '2020-05-18', '2020-05-24'))
-    print(traffic_sources(44147844, '2020-05-18', '2020-05-24'))
+    with open('data/{}'.format(METRIKA_FILE), 'w') as f:
+        for rec in traffic_sources(44147844, LOAD_DATE, LOAD_DATE):
+            f.write('{},{},{}\n'.format(LOAD_DATE, rec[0], rec[1]))
 
 
 if __name__ == '__main__':
