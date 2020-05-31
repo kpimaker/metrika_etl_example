@@ -5,6 +5,7 @@ from config import METRIKA_FILE, COSTS_FILE
 
 
 def main():
+    """Объединение результатов Я.Метрики и расходов и подсчет столбца cost_per_visit. Подробности в readme.md"""
     metrika = pd.read_csv('data/{}'.format(METRIKA_FILE), names=['date', 'source', 'visits'])
     costs = pd.read_csv('data/{}'.format(COSTS_FILE), names=['date', 'status', 'source', 'costs'])
 
